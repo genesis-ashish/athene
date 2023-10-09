@@ -1,0 +1,59 @@
+<!--
+!
+!   System              : Genesis Business Library
+!   Sub-System          : multi-pro-code-test Configuration
+!   Version             : 1.0
+!   Copyright           : (c) Genesis
+!   Date                : 2022-03-18
+!   Function : Provide Process Definitions Config for multi-pro-code-test.
+!
+!   Modification History
+!
+-->
+<processes>
+    <process name="ATHENE_DATASERVER">
+        <groupId>ATHENE</groupId>
+        <start>true</start>
+        <options>-Xmx1024m -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-dataserver</module>
+        <package>global.genesis.dataserver.pal</package>
+        <script>athene-dataserver.kts</script>
+        <description>Displays real-time details</description>
+        <language>pal</language>
+        <loggingLevel>DEBUG,DATADUMP_ON</loggingLevel>
+    </process>
+    <process name="ATHENE_EVENT_HANDLER">
+        <groupId>ATHENE</groupId>
+        <start>true</start>
+        <options>-Xmx256m -DRedirectStreamsToLog=true -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-eventhandler</module>
+        <package>global.genesis.eventhandler.pal</package>
+        <script>athene-eventhandler.kts</script>
+        <description>Handles events</description>
+        <classpath>athene-messages*,athene-eventhandler*</classpath>
+        <language>pal</language>
+    </process>
+    <process name="ATHENE_DATAPIPELINE">
+        <groupId>ATHENE</groupId>
+        <start>true</start>
+        <options>-Xmx512m -DRedirectStreamsToLog=true -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-datapipeline</module>
+        <package>global.genesis.datapipeline.pal</package>
+        <script>athene-data-pipeline.kts</script>
+        <description>Pipelines for importing csv files</description>
+        <language>pal</language>
+        <loggingLevel>INFO,DATADUMP_OFF</loggingLevel>
+    </process>
+    <process name="ATHENE_CONSOLIDATOR">
+        <groupId>ATHENE</groupId>
+        <start>true</start>
+        <options>-Xmx512m -DRedirectStreamsToLog=true -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-consolidator</module>
+        <package>global.genesis.pal.consolidator</package>
+        <script>athene-consolidator.kts</script>
+        <description>Data Aggregator for the Athene</description>
+        <language>pal</language>
+        <loggingLevel>INFO,DATADUMP_OFF</loggingLevel>
+        <arguments>--coldStart</arguments>
+    </process>
+</processes>
