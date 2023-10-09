@@ -54,3 +54,4 @@ node_modules
 # Intellij plugin folder
 .genesis-home
 build-cache
+testData
