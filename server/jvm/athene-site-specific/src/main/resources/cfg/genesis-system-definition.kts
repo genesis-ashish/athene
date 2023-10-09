@@ -29,7 +29,7 @@ systemDefinition {
 
     systems {
 
-        system(name = "DEV") {
+        system(name = "LOCAL") {
 
             hosts {
                 host(LOCAL_HOST)
@@ -40,6 +40,23 @@ systemDefinition {
             item(name = "location", value = "LO")
             item(name = "LogFramework", value = "LOG4J2")
             item(name = "LogFrameworkConfig", value = "log4j2-default.xml")
+            item(name = "UPLOAD_DIR", value = "testData")
+            item(name = "UPLOAD_FILE", value = "trade.csv")
+        }
+
+        system(name = "DEV") {
+
+            hosts {
+                host("dev-ashish1")
+            }
+            item(name = "DbHost", value = "jdbc:postgresql://localhost:5432/?user=postgres&password=Password11*")
+            item(name = "DbNamespace", value = "athene")
+            item(name = "ClusterPort", value = "6000")
+            item(name = "location", value = "LO")
+            item(name = "LogFramework", value = "LOG4J2")
+            item(name = "LogFrameworkConfig", value = "log4j2-default.xml")
+            item(name = "UPLOAD_DIR", value = "/home/chat/run/testdata")
+            item(name = "UPLOAD_FILE", value = "trade.csv")
         }
 
     }
