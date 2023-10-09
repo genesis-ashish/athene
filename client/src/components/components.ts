@@ -5,6 +5,7 @@ import { g2plotChartsComponents } from '@genesislcap/g2plot-chart';
 import { logger } from '../utils';
 import { Form } from '@genesislcap/foundation-forms';
 import {FoundationLayout, foundationLayoutComponents} from '@genesislcap/foundation-layout';
+import {foundationDesignSystemProvider, registerFoundationDesignSystem} from '@genesislcap/foundation-ui'
 
 EntityManagement;
 Form;
@@ -24,6 +25,21 @@ function loadZeroFallback() {
     '@genesislcap/foundation-zero'
   );
 }
+
+function loadFoundationLayoutFallback() {
+  return import(
+    /* webpackMode: "lazy" */
+    '@genesislcap/foundation-layout'
+  );
+}
+
+async function loadFuiFallback() {
+  return import(
+    /* webpackMode: "lazy" */
+    '@genesislcap/foundation-ui'
+  );
+}
+
 
 /**
  * Granular
@@ -45,12 +61,15 @@ export type LoadRemotesOptions = {};
 
 export async function loadRemotes() {
   const { provideDesignSystem, baseComponents } = await loadZeroDesignSystem();
+  const { registerFoundationDesignSystem } = await loadFuiFallback();
+  const { foundationLayoutComponents} = await loadFoundationLayoutFallback();
   return {
+    FoundationDesignSystem: registerFoundationDesignSystem().register(foundationLayoutComponents),
     ZeroDesignSystem: provideDesignSystem().register(
       baseComponents,
       zeroGridComponents,
       g2plotChartsComponents,
-      foundationLayoutComponents
+      
     ),
   };
 }
