@@ -39,8 +39,9 @@ systemDefinition {
             item(name = "location", value = "LO")
             item(name = "LogFramework", value = "LOG4J2")
             item(name = "LogFrameworkConfig", value = "log4j2-default.xml")
-            item(name = "UPLOAD_DIR", value = "testdata")
+            item(name = "UPLOAD_DIR", value = "/home/chat/run/testdata")
             item(name = "UPLOAD_FILE", value = "trade.csv")
+            item(name = "DbHost", value = "jdbc:postgresql://localhost:5432/?user=postgres&password=Password11*")
         }
     }
 
