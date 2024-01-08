@@ -1,6 +1,7 @@
 import {html} from '@microsoft/fast-element';
 import type {Home} from './home';
-
+import {OrdersChart} from "../../components/orders-chart/orders-chart";
+OrdersChart
 export const HomeTemplate = html<Home>`
     <foundation-layout>
         <foundation-layout-region type="horizontal">
@@ -9,6 +10,7 @@ export const HomeTemplate = html<Home>`
                     <entity-management
                             resourceName="ALL_TRADES"
                             createEvent="EVENT_TRADE_INSERT"
+                            updateEvent="EVENT_TRADE_MODIFY"
                     ></entity-management>
                 </foundation-layout-item>
                 <foundation-layout-item title="All Maturity">
@@ -23,10 +25,11 @@ export const HomeTemplate = html<Home>`
                             resourceName="ALL_POSITIONS"
                     ></entity-management>
                 </foundation-layout-item>
-                <foundation-layout-item title="Side data">
-                    <entity-management
+                <foundation-layout-item title="Symbol Chart">
+                    <orders-chart></orders-chart>
+                    <!--<entity-management
                             resourceName="ALL_SIDES"
-                    ></entity-management>
+                    ></entity-management>-->
                 </foundation-layout-item>
             </foundation-layout-region>
         </foundation-layout-region>

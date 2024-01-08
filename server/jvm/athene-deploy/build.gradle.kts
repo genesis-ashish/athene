@@ -26,6 +26,7 @@ dependencies {
 
     api(project(":athene-eventhandler"))
     api(project(":athene-messages"))
+    api(project(":athene-integration"))
     // Add additional dependencies on other external distributions here
 }
 tasks {

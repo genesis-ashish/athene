@@ -56,4 +56,14 @@
         <loggingLevel>INFO,DATADUMP_OFF</loggingLevel>
         <arguments>--coldStart</arguments>
     </process>
+    <process name="ATHENE_INTEGRATION">
+        <groupId>ATHENE</groupId>
+        <start>true</start>
+        <options>-Xmx4096m -DRedirectStreamsToLog=true -DXSD_VALIDATE=false</options>
+        <module>athene-integration</module>
+        <package>global.genesis.athene.perf</package>
+        <description>Handle External Integration</description>
+        <classpath>athene-messages*,athene-eventhandler*,athene-integration*</classpath>
+        <loggingLevel>INFO, DATADUMP_OFF</loggingLevel>
+    </process>
 </processes>

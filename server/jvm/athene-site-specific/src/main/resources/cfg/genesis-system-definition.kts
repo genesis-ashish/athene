@@ -6,7 +6,6 @@ systemDefinition {
         item(name = "MqLayer", value = "ZeroMQ")
         item(name = "DbLayer", value = "SQL")
         item(name = "DbHost", value = "jdbc:postgresql://localhost:5432/?user=genesis&password=genesis")
-        item(name = "DbSqlConnectionPoolSize", value = "4")
         item(name = "DictionarySource", value = "DB")
         item(name = "AliasSource", value = "DB")
         item(name = "MetricsEnabled", value = "false")
@@ -20,6 +19,10 @@ systemDefinition {
         item(name = "MetadataChronicleMapAverageValueSizeBytes", value = "1024")
         item(name = "MetadataChronicleMapEntriesCount", value = "512")
         item(name = "DaemonServerPort", value = "4568")
+        item(name = "SqlMaxParametersPerRequest", value = "-1")
+        item(name = "DbThreadsMin", value = "16")
+        item(name = "DbThreadsMax", value = "32")
+        item(name = "DbSqlMaxPoolSize", value = "100")
         item(
             name = "JVM_OPTIONS",
             value = "-XX:MaxHeapFreeRatio=70 -XX:MinHeapFreeRatio=30 -XX:+UseG1GC -XX:+UseStringDeduplication -XX:OnOutOfMemoryError=\"handleOutOfMemoryError.sh %p\""
@@ -39,9 +42,8 @@ systemDefinition {
             item(name = "location", value = "LO")
             item(name = "LogFramework", value = "LOG4J2")
             item(name = "LogFrameworkConfig", value = "log4j2-default.xml")
-            item(name = "UPLOAD_DIR", value = "/home/chat/run/testdata")
+            item(name = "UPLOAD_DIR", value = "testData")
             item(name = "UPLOAD_FILE", value = "trade.csv")
-            item(name = "DbHost", value = "jdbc:postgresql://localhost:5432/?user=postgres&password=Password11*")
         }
     }
 

@@ -18,5 +18,12 @@ eventHandler {
             ack()
         }
     }
+    eventHandler<Trade>(name = "TRADE_MODIFY") {
+        schemaValidation = false
+        onCommit { event ->
+            entityDb.modify(event.details)
+            ack()
+        }
+    }
 
 }

@@ -73,4 +73,13 @@ tables {
         }
     }
 
+    table(name= "ORDERS", id=2008){
+        sequence(ORDER_ID, "OR")
+        SYMBOL
+        QUANTITY
+        PRICE
+        DIRECTION
+        primaryKey { ORDER_ID }
+    }
+
 }

@@ -8,6 +8,7 @@ dependencies {
     implementation(project(":athene-eventhandler"))
     implementation(project(":athene-messages"))
     implementation(project(":athene-script-config"))
+    implementation(project(":athene-integration"))
 }
 
 description = "athene-distribution"

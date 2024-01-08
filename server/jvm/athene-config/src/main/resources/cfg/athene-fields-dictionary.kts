@@ -24,5 +24,6 @@ fields {
     field("SDPRICE", type = DOUBLE)
     field("MATURITY", type = INT)
     field("POSITION_ID", type=STRING)
+    field("ORDER_ID", type=STRING)
 
 }

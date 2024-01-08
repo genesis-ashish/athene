@@ -46,6 +46,7 @@ pluginManagement {
 include("athene-config")
 include("athene-messages")
 include("athene-eventhandler")
+include("athene-integration")
 include("athene-script-config")
 include("athene-distribution")
 include("athene-dictionary-cache")

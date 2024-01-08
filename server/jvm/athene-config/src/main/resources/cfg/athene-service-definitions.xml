@@ -15,4 +15,5 @@
     <service host="localhost" name="ATHENE_EVENT_HANDLER" port="11001"/>
     <service host="localhost" name="ATHENE_DATAPIPELINE" port="11003"/>
     <service host="localhost" name="ATHENE_CONSOLIDATOR" port="11005"/>
+    <service host="localhost" name="ATHENE_INTEGRATION" port="11007"/>
 </configuration>
